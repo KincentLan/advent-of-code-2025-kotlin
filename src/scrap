@@ -1,0 +1,42 @@
+fun getDuplicates(min: String, max: String) : Int {
+    // Only check even digit numbers
+    // 1000
+    // 5
+    // 346232, 34623212
+    // 6 * 6 * 4
+    var totalDuplicates = 0
+
+    val minDigits = min.length
+    val maxDigits = max.length
+
+    var curMinDigits = minDigits
+
+    while (curMinDigits < maxDigits) {
+
+        if (curMinDigits % 2 == 1) {
+            curMinDigits++
+            continue
+        }
+
+        //
+
+        if (minDigits == curMinDigits) {
+            var currentTotal = 9 - min[0].digitToInt()
+            for (i in 1..<minDigits / 2) {
+                currentTotal *= 10 - min[i].digitToInt()
+            }
+            totalDuplicates += currentTotal
+        } else {
+            totalDuplicates += 9 * (10).toDouble().pow(curMinDigits / 2 - 1).toInt()
+        }
+
+        curMinDigits += 1
+    }
+
+    if (maxDigits % 2 == 1) {
+        return totalDuplicates
+    }
+
+
+
+}
