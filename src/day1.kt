@@ -48,7 +48,7 @@ fun getPasswordWithMethod0x434(rotationList: File): Int {
 }
 
 fun main() {
-    val inputFile = File(Path("src/inputs/day1.txt").absolutePathString())
+    val inputFile = getFileForDay(1)
     val attemptedPassword = getPassword(inputFile)
     val password = getPasswordWithMethod0x434(inputFile)
 

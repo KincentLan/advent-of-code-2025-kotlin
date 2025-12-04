@@ -54,7 +54,7 @@ fun getDuplicateSum(min: String, max: String) : Long {
 fun getAllInvalidIds(idList: File) : Long {
     var duplicateSum: Long = 0
 
-    val text = idList.readText()
+    val text = idList.readText().replace("\\s+".toRegex(), "")
     val numberRanges = text.split(",")
 
     for (numberRange in numberRanges) {
@@ -124,13 +124,13 @@ fun getDuplicateSumTwo(min: String, max: String) : Long {
 fun getAllInvalidIdsTwo(idList: File): Long {
     var duplicateSum: Long = 0
 
-    val text = idList.readText()
+    val text = idList.readText().replace("\\s+".toRegex(), "")
     val numberRanges = text.split(",")
 
     for (numberRange in numberRanges) {
         val numbers = numberRange.split('-')
-        val min = numbers[0].replace("\\s+".toRegex(), "")
-        val max = numbers[1].replace("\\s+".toRegex(), "")
+        val min = numbers[0]
+        val max = numbers[1]
         duplicateSum += getDuplicateSumTwo(min, max)
     }
 
@@ -139,7 +139,7 @@ fun getAllInvalidIdsTwo(idList: File): Long {
 
 
 fun main() {
-    val inputFile = File(Path("src/inputs/day2.txt").absolutePathString())
-    println(getAllInvalidIds(inputFile))
-    println(getAllInvalidIdsTwo(inputFile))
+    val inputFile = getFileForDay(2)
+    println("Sum of all invalids: ${getAllInvalidIds(inputFile)}")
+    println("Sum of all invalids (pt2): ${getAllInvalidIdsTwo(inputFile)}")
 }
