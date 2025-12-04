@@ -59,8 +59,8 @@ fun getAllInvalidIds(idList: File) : Long {
 
     for (numberRange in numberRanges) {
         val numbers = numberRange.split('-')
-        val min = numbers[0].replace("\\s+".toRegex(), "")
-        val max = numbers[1].replace("\\s+".toRegex(), "")
+        val min = numbers[0]
+        val max = numbers[1]
         duplicateSum += getDuplicateSum(min, max)
     }
 
