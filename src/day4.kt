@@ -60,7 +60,7 @@ fun calculateAccessibleRolls(mazeFile: File) : Int {
     return calculateAccessibleRolls(getMaze(mazeFile))
 }
 
-fun handleSpot(maze: List<CharArray>, coordinate: Coordinate) : Int {
+fun removeRolls(maze: List<CharArray>, coordinate: Coordinate) : Int {
     val row = coordinate.row
     val col = coordinate.col
     if (row !in 0..<maze.size || col !in 0..<maze[row].size || maze[row][col] == '.') return 0
@@ -70,7 +70,7 @@ fun handleSpot(maze: List<CharArray>, coordinate: Coordinate) : Int {
         maze[row][col] = '.'
         removed++
         for (dir in DIRECTIONS) {
-            removed += handleSpot(maze, Coordinate(row + dir.row, col + dir.col))
+            removed += removeRolls(maze, Coordinate(row + dir.row, col + dir.col))
         }
     }
 
@@ -82,7 +82,7 @@ fun calculateRollsRemoved(maze: List<CharArray>) : Int{
 
     for (row in maze.indices) {
         for (col in maze[row].indices) {
-            removed += handleSpot(maze, Coordinate(row, col))
+            removed += removeRolls(maze, Coordinate(row, col))
         }
     }
     return removed
