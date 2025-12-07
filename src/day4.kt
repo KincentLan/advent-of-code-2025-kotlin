@@ -1,7 +1,5 @@
 import java.io.File
 
-data class Coordinate(val row: Int, val col: Int)
-
 val DIRECTIONS = listOf(
     Coordinate(-1, -1), // Top Left
     Coordinate(-1, 0), // Top
