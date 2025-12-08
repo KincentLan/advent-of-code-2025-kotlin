@@ -1,0 +1,1 @@
+data class Coordinate3d(val x: Int, val y: Int, val z: Int)
