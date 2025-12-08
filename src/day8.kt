@@ -1,19 +1,6 @@
 import java.io.File
-import java.util.Objects
 
-data class Edge(val c1: Coordinate3d, val c2: Coordinate3d) {
-    override fun equals(other: Any?): Boolean {
-        if (this == other) return true
-        if (other !is Edge) return false
-        return (this.c1 == other.c1 && this.c2 == other.c2) ||
-                (this.c1 == other.c2 && this.c2 == other.c1)
-    }
-
-    override fun hashCode(): Int {
-        return Objects.hash(c1, c2)
-    }
-}
-
+data class Edge(val c1: Coordinate3d, val c2: Coordinate3d)
 data class EdgeDistance(val edge: Edge, val distance: Long)
 
 fun calculateDistance(c1: Coordinate3d, c2: Coordinate3d): Long {
