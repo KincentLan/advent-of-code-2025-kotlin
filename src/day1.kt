@@ -1,6 +1,4 @@
 import java.io.File
-import kotlin.io.path.Path
-import kotlin.io.path.absolutePathString
 import kotlin.math.abs
 
 fun rotate(dial: Int, magnitude: Int): Int {

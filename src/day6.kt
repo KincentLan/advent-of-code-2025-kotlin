@@ -1,6 +1,5 @@
 import java.io.File
 import kotlin.math.max
-import kotlin.math.min
 
 fun getSumOfOperations(file: File) : Long {
     val lines = file.readLines()
